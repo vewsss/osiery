@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: osiery
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: osiery
+  template:
+    metadata:
+      labels:
+        app: osiery
+    spec:
+      containers:
+      - image: okteto.dev/osiery:latest
+        name: osiery
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "d18b7c1a-00da-40b5-aac7-39180ecb7024"
+        - name: Vless_Path
+          value: "/s233"
+        - name: Vmess_UUID
+          value: "d18b7c1a-00da-40b5-aac7-39180ecb7024"
+        - name: Vmess_Path
+          value: "/s244"
+        - name: Share_Path
+          value: "/share233"
